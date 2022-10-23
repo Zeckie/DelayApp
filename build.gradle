@@ -1,21 +1,28 @@
 plugins {
     id 'java'
     id 'war'
+    id "org.gretty" version "4.0.3"
 }
 
 group 'com.github.zeckie'
-version '0.0.1'
+version '0.0.2'
 
 repositories {
     mavenCentral()
 }
 
+// can be run in Tomcat 10 with Java 1.8
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
     compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '5.0.0'
 }
+
+gretty {
+    servletContainer = 'jetty11'
+}
+
 /*
  * This file is part of DelayApp - https://github.com/Zeckie/DelayApp
  * DelayApp is Copyright (c) 2022 Zeckie
